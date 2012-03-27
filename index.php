@@ -28,8 +28,13 @@ $action = preg_replace('/[^A-Za-z0-9_-]/', '', $action);
 $template_manager = new TemplateManager();
 $base_template = new Template('templates/base.php');
 
+if(isset($_SESSION['user_id']))
+	$user = new User($_SESSION['user_id']);
+else
+	$user = null;
+
 function __go_circuit() {
-	global $template_manager, $base_template, $circuit, $action;
+	global $template_manager, $base_template, $circuit, $action, $user;
 	chdir('circuits/'.$circuit);
 	if(!file_exists($action.'.php')) error($circuit . '/' . $action . ' not found.');
 	require($action.'.php');
@@ -39,6 +44,7 @@ function __go_circuit() {
 __go_circuit();
 
 $base_template->set_param('content', $template_manager->render('content', false));
+$base_template->set_param('user', $user);
 
 $template_manager->add_template('basic_template', $base_template);
 $template_manager->set_base('basic_template');

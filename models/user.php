@@ -10,7 +10,7 @@ class User {
 	private $id;
 	private $set_field = array('email_address', 'password', 'full_name');
 	private $get_field = array('id', 'email_address', 'password', 'full_name');
-	
+		
 	public function __construct($id) {
 		$this->id = (int)$id;
 	}
@@ -32,6 +32,10 @@ class User {
 		if(!is_array($r)) 
 			error("The user does not exist.");
 		return $r[$name];
+	}
+	
+	public function compare_password($password) {
+		return sha1($this->__get('email_address') . $password) == $this->__get('password');
 	}
 	
 	public static function create($email_address, $password, $full_name) {

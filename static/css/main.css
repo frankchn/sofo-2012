@@ -23,6 +23,13 @@ table {
 	padding:2px;
 }
 
+.error {
+	padding:8px;
+	margin:8px;
+	background-color:#ffeeee;
+	border:1px solid #cc0000;
+}
+
 #outer_container {
 	width:100%;
 }
