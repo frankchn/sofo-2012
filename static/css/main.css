@@ -5,6 +5,24 @@ body {
 	font-size:13px;
 }
 
+a {
+	text-decoration:none;
+	color:#0000bb;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+table {
+	font-size:13px;
+}
+
+.textbox {
+	border:1px solid #d0d0d0;
+	padding:2px;
+}
+
 #outer_container {
 	width:100%;
 }

@@ -17,6 +17,9 @@ require_once('lib/init/functions.php');
 require_once('lib/templates/manager.php');
 require_once('lib/templates/template.php');
 
+/* Relevant Classes */
+require_once('models/user.php');
+
 /* Retrieve the Circuit and Action */
 list($circuit, $action) = explode('/', $_GET['rewrite'], 2);
 $circuit = preg_replace('/[^A-Za-z0-9_-]/', '', $circuit);
@@ -28,6 +31,7 @@ $base_template = new Template('templates/base.php');
 function __go_circuit() {
 	global $template_manager, $base_template, $circuit, $action;
 	chdir('circuits/'.$circuit);
+	if(!file_exists($action.'.php')) error($circuit . '/' . $action . ' not found.');
 	require($action.'.php');
 	chdir('../../');
 }

@@ -3,4 +3,4 @@
 Sophomore Fellows program on Web Application Development. This project is originally
 written by Chuan Yu Foo and Frank Chen, with additional code from Yifan Mai (templating engine).</p>
 <p>This website is a clone of the popular image sharing website, Flickr, albeit with much
-reduced functionality.</p>
+reduced functionality. This code is licensed, where applicable, under the MIT License.</p>
