@@ -1,0 +1,35 @@
+body {
+	font-family:Helvetica, Arial, sans-serif;
+	padding:0px;
+	margin:0px;
+	font-size:13px;
+}
+
+#outer_container {
+	width:100%;
+}
+
+#top_bar {
+	border-bottom:1px solid #e0e3e3;
+	clear:both;
+	padding:15px;
+}
+
+#left_banner {
+	font-size:18px;
+	font-weight:bold;
+}
+
+#content_container {
+	clear:both;
+	padding-top:15px;
+}
+
+#right_banner {
+	float:right;
+}
+
+#content {
+	width:950px;
+	margin:0px auto;
+}

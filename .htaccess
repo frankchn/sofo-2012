@@ -1,0 +1,7 @@
+IndexIgnore *
+RewriteEngine on
+RewriteBase /sofo/
+RewriteRule $^	home/welcome [R,L]
+RewriteCond %{REQUEST_URI} !^/sofo/static
+RewriteCond %{REQUEST_URI} !^/sofo/upload
+RewriteRule ^(.+)$                  	 index.php?rewrite=$1 [L,QSA]
