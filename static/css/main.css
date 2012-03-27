@@ -58,3 +58,16 @@ table {
 	width:950px;
 	margin:0px auto;
 }
+
+.section_container {
+	padding-bottom:25px;
+}
+
+.section_container h2 {
+	border-bottom:1px solid #cccccc;
+}
+
+.section_actions {
+	float:right;
+	padding-top:7px;
+}
