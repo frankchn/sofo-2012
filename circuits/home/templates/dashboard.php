@@ -2,11 +2,12 @@
 	<div class="section_actions"><a href="<?=create_link('photostream/upload');?>">Upload New Photos</a></div>
 	<h2>My Photostream</h2>
 	<div class="section_content">
-		<?php if(count($photostream) > 0) { ?>
-			<?php foreach($photostream as $photo) { ?>
-				<div class="thumbnail_container">
-					<img src="<?=$photo->getImageURL('thumb')?>">
-				</div>
+		<?php if(count($photostream) > 0) { $max = 0; ?>
+			<?php 
+			foreach($photostream as $photo) {
+				if($max++ >= 10) continue;
+			?>
+				<a href="../photostream/view?photo=<?=$photo->id?>"><div class="thumbnail_container"><img src="<?=$photo->getImageURL('thumb')?>"></div></a>
 			<?php } ?>
 		<?php } else { ?>
 		<div style="text-align:center">

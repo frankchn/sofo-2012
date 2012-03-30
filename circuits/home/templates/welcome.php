@@ -1,6 +1,6 @@
 <?php if(is_object($frontpage_photo)) { ?>
 	<div style="text-align:center">
-		<img src="<?=$frontpage_photo->getImageURL('small')?>">
+		<a href="../photostream/view?photo=<?=$frontpage_photo->id?>"><img border="0" src="<?=$frontpage_photo->getImageURL('small')?>"></a>
 	</div>
 <?php } ?>
 <h2>Welcome to Micro-Flick</h2>

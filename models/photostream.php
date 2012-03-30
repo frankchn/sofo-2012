@@ -11,8 +11,10 @@ class Photostream implements Iterator {
 		
 		if(count($uids) == 0) {
 			$this->uids[] = $user->id;
-		} else {
+		} else if(is_array($uids)) {
 			$this->uids = $uids;
+		} else {
+			$this->uids = array($uids);
 		}
 		
 		$this->uid_string = implode(',', $this->uids);
@@ -29,23 +31,37 @@ class Photostream implements Iterator {
 	public function key() {
 		return $this->current_index;
 	}
-
-	public function prev() {
+	
+	public function setIndex($id) {
+		$this->current_index = $id;
+	}
+	
+	public function getPrev() {
 		$g = mysql_fetch_assoc(mysql_query('SELECT `id` FROM `photos` WHERE `id` > '.$this->current_index.' AND `user_id` IN ('.$this->uid_string.') ORDER BY `id` ASC LIMIT 0,1'));
 		if(is_array($g)) {
-			$this->current_index = $g['id'];
+			return new Photo($g['id']);
 		} else {
-			$this->current_index = null;
+			return null;
 		}
 	}
 	
-	public function next() {
+	public function getNext() {
 		$g = mysql_fetch_assoc(mysql_query('SELECT `id` FROM `photos` WHERE `id` < '.$this->current_index.' AND `user_id` IN ('.$this->uid_string.') ORDER BY `id` DESC LIMIT 0,1'));
 		if(is_array($g)) {
-			$this->current_index = $g['id'];
+			return new Photo($g['id']);
 		} else {
-			$this->current_index = null;
+			return null;
 		}
+	}
+
+	public function prev() {
+		$object = $this->getPrev();
+		$this->current_index = is_object($object) ? $object->id : null;
+	}
+	
+	public function next() {
+		$object = $this->getNext();
+		$this->current_index = is_object($object) ? $object->id : null;
 	}
 	
 	public function rewind() {
