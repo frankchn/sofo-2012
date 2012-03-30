@@ -1,5 +1,10 @@
 <?php
 
+function require_login() {
+	global $user;
+	if($user == null) error('You must login to access this page.');
+}
+
 function error($message) {
 	echo "<strong>Internal Server Error: $message</strong>";
 	die();

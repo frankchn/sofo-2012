@@ -10,6 +10,7 @@
 error_reporting(E_ALL | E_STRICT);
 
 require_once('config/database.config.php');
+require_once('config/image.config.php');
 require_once('lib/init/init.php');
 require_once('lib/init/functions.php');
 
@@ -19,6 +20,8 @@ require_once('lib/templates/template.php');
 
 /* Relevant Classes */
 require_once('models/user.php');
+require_once('models/photo.php');
+require_once('models/photostream.php');
 
 /* Retrieve the Circuit and Action */
 list($circuit, $action) = explode('/', $_GET['rewrite'], 2);

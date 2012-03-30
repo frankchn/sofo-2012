@@ -30,6 +30,26 @@ table {
 	border:1px solid #cc0000;
 }
 
+.success {
+	padding:8px;
+	margin:8px;
+	background-color:#eeffee;
+	border:1px solid #00cc00;
+}
+
+.thumbnail_container {
+	display:inline-block;
+	width:185px;
+	text-align:center;
+	vertical-align:middle;
+	padding-bottom:15px;
+}
+
+.thumbnail_container img {
+	border:1px solid #cccccc;
+	padding:1px;
+}
+
 #outer_container {
 	width:100%;
 }
