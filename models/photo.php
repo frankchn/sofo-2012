@@ -33,7 +33,11 @@ class Photo {
 	
 	public static function getRandomImage() {
 		$fphoto = mysql_fetch_assoc(mysql_query('SELECT `id` FROM `photos` ORDER BY RAND() LIMIT 0,1'));
-		return new Photo($fphoto['id']);
+		if(is_array($fphoto)) {
+			return new Photo($fphoto['id']);
+		} else {
+			return null;
+		}
 	}
 	
 	public static function createNewImage($title, $description, $file_name, $extension) {
