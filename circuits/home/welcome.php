@@ -6,6 +6,7 @@ if($user == null) {
 	$template_manager->add_template('content', $template);
 } else {
 	$template = new Template('templates/dashboard.php');
-	$template->set_param('photostream', new Photostream());
+	$template->set_param('photostream', $user->getPhotostream());
+	$template->set_param('sets', $user->getSets());
 	$template_manager->add_template('content', $template);
 }

@@ -45,6 +45,13 @@ table {
 	padding-bottom:15px;
 }
 
+.set_description {
+	display:inline-block;
+	width:750px;
+	text-align:left;
+	padding-bottom:15px;
+}
+
 .thumbnail_container img {
 	border:1px solid #cccccc;
 	padding:1px;

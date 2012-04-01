@@ -1,8 +1,17 @@
 <div>
-	<div style="float:right">
-		<a href="<?=$photo->getImageURL('medium')?>" target="_new">Medium</a> | 
-		<a href="<?=$photo->getImageURL('large')?>" target="_new">Large</a> | 
-		<a href="<?=$photo->getImageURL('original')?>" target="_new">Original</a>
+	<div style="float:right; text-align:right">
+		<div>
+			<a href="<?=$photo->getImageURL('medium')?>" target="_new">Medium</a> | 
+			<a href="<?=$photo->getImageURL('large')?>" target="_new">Large</a> | 
+			<a href="<?=$photo->getImageURL('original')?>" target="_new">Original</a>
+		</div>
+		<?php
+		if($photo->user_id == $user->id) {
+		?>
+		<div><a href="delete?photo=<?=$photo->id?>">Delete</a></div>
+		<?php	
+		}
+		?>
 	</div>
 	<h2>Photo &mdash; <?=_s($photo->title);?></h2>
 </div>

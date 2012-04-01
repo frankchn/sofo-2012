@@ -22,6 +22,7 @@ require_once('lib/templates/template.php');
 require_once('models/user.php');
 require_once('models/photo.php');
 require_once('models/photostream.php');
+require_once('models/set.php');
 
 /* Retrieve the Circuit and Action */
 list($circuit, $action) = explode('/', $_GET['rewrite'], 2);

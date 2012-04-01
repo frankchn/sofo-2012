@@ -8,5 +8,6 @@ render_form:
 	$template = new Template('templates/view.php');
 	$template->set_param('photo', $photo);
 	$template->set_param('photostream', $photostream);
+	$template->set_param('user', $user);
 	$template_manager->add_template('content', $template);
 	

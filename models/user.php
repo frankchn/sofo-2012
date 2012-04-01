@@ -34,6 +34,19 @@ class User {
 		return $r[$name];
 	}
 	
+	public function getPhotostream() {
+		return new Photostream($this->id);
+	}
+	
+	public function getSets() {
+		$sets = array();
+		$s_r = mysql_query('SELECT `id` FROM `sets` WHERE `user_id` = '.$this->id);
+		while($s = mysql_fetch_assoc($s_r)) {
+			$sets[] = new Photoset($s['id']);
+		}
+		return $sets;
+	}
+	
 	public function compare_password($password) {
 		return sha1($this->__get('email_address') . $password) == $this->__get('password');
 	}
