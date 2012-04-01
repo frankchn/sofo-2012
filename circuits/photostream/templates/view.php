@@ -8,7 +8,7 @@
 		<?php
 		if($photo->user_id == $user->id) {
 		?>
-		<div><a href="delete?photo=<?=$photo->id?>">Delete</a></div>
+		<div><a href="upload">Upload</a> | <a href="delete?photo=<?=$photo->id?>">Delete</a></div>
 		<?php	
 		}
 		?>

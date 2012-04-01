@@ -17,6 +17,16 @@ class Photo {
 		mysql_query('UPDATE `photos` SET `'.$name.'` = \"'.mysql_real_escape_string($value).'\" WHERE `id` = '.$this->id);
 	}
 	
+	public function delete() {
+		$arr = get_image_sizes();
+		$arr['original'] = array();
+		foreach($arr as $name => $dimensions)
+			unlink(UPLOAD_DIRECTORY.$this->file_name.'_'.$name.'.png');
+
+		mysql_query('DELETE FROM `photos` WHERE `id` = '.$this->id);
+		$this->id = -1;
+	}
+	
 	public function __get($name) {
 		if(!in_array($name, $this->get_field)) 
 			error("You cannot get property $name for Photos.");
@@ -26,7 +36,7 @@ class Photo {
 			error("The photo does not exist.");
 		return $r[$name];
 	}
-	
+
 	public function getImageURL($type = 'small') {
 		return '../upload/'.$this->__get('file_name').'_'.$type.'.png';
 	}
