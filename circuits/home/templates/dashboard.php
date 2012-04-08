@@ -55,6 +55,6 @@
 	<div class="section_actions">Add Friends</div>
 	<h2>My Friends</h2>
 	<div class="section_content">
-	
+		Under Construction! Why don't you try?
 	</div>
 </div>

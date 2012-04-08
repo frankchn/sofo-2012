@@ -24,6 +24,8 @@ class Photo {
 			unlink(UPLOAD_DIRECTORY.$this->file_name.'_'.$name.'.png');
 
 		mysql_query('DELETE FROM `photos` WHERE `id` = '.$this->id);
+		mysql_query('DELETE FROM `sets_photos` WHERE `photo_id` = '.$this->id);
+		
 		$this->id = -1;
 	}
 	
