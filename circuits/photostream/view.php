@@ -5,7 +5,7 @@ if(isset($_GET['photo'])) {
 	$photostream = new Photostream($photo->user_id);
 } else {
 	if(is_object($user)) {
-		$photostream = new Photostream($photo->user_id);
+		$photostream = new Photostream($user->id);
 		$photo = $photostream->current();
 	} else {
 		$photo = Photo::getRandomImage();

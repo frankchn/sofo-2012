@@ -18,7 +18,7 @@
 </div>
 
 <div class="section_container">
-	<div class="section_actions">Manage Sets</div>
+	<div class="section_actions"><a href="../sets/add">Add New Set</a></div>
 	<h2>My Sets</h2>
 	<div class="section_content">
 		<?php

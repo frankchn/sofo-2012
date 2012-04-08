@@ -5,8 +5,8 @@ class Photoset {
 	private $id;
 	private $current_index;
 	
-	private $set_field = array('title', 'description');
-	private $get_field = array('id', 'title', 'description');	
+	private $set_field = array('title', 'user_id', 'description');
+	private $get_field = array('id', 'user_id', 'title', 'description');	
 	
 	public function __construct($id) {
 		$this->id = (int)$id;
@@ -43,6 +43,11 @@ class Photoset {
 		} else {
 			return null;
 		}
+	}
+	
+	public function delete() {
+		mysql_query('DELETE FROM `sets_photos` WHERE `set_id` = '.$this->id);
+		mysql_query('DELETE FROM `sets` WHERE `id` = '.$this->id);
 	}
 	
 	public function getPhotos() {
